@@ -1,39 +1,25 @@
 package com.example.giftcardsite
 
-import android.Manifest
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.hardware.Sensor
-import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
-import android.hardware.SensorManager
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.giftcardsite.api.model.*
 import com.example.giftcardsite.api.service.CardInterface
-import com.example.giftcardsite.api.service.UserInfo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CardScrollingActivity : AppCompatActivity(), SensorEventListener, LocationListener {
+class CardScrollingActivity : AppCompatActivity() {
     private var loggedInUser : User? = null
-    private lateinit var sensorManager: SensorManager
-    private var mAccel: Sensor? = null;
+    
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,17 +76,7 @@ class CardScrollingActivity : AppCompatActivity(), SensorEventListener, Location
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
-    override fun onLocationChanged(location: Location) {
-       
-    }
-
-    override fun onSensorChanged(event: SensorEvent?) {
     
-    }
-
-    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-        return
-    }
 
     override fun onResume() {
         super.onResume()
